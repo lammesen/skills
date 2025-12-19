@@ -52,3 +52,42 @@ This project includes a comprehensive Zig Expert Skill for Claude Code located i
 ```bash
 curl -fsSL https://raw.githubusercontent.com/DonIsaac/zlint/refs/heads/main/tasks/install.sh | bash
 ```
+
+---
+
+## Bun Expert Skill
+
+This project also includes a comprehensive Bun Expert Skill for Claude Code located in `.claude/skills/bun-expert/`. The skill provides:
+
+### Main Skill
+- **SKILL.md**: Core Bun runtime expertise including HTTP servers, file I/O, package management, testing, bundling, TypeScript integration, and Node.js migration patterns
+
+### Reference Documentation
+- **api-reference.md**: Complete Bun API reference (Bun.serve, Bun.file, bun:sqlite, etc.)
+- **migration-guide.md**: Node.js to Bun migration strategies and compatibility matrix
+- **testing-guide.md**: Comprehensive bun:test documentation
+- **bundler-guide.md**: Bun.build() configuration and optimization
+
+### Specialized Agents
+- **bun-tester**: Testing specialist for running tests, diagnosing failures, and ensuring code quality with bun:test
+- **bun-bundler**: Build system expert for Bun.build() configuration, optimization, and single executable compilation
+- **bun-migrator**: Migration specialist for converting Node.js projects to Bun
+- **bun-debugger**: Debugging specialist for runtime errors, performance issues, and memory analysis
+
+### Hooks
+- Automatic Biome formatting on TypeScript/JavaScript file save (in Bun projects)
+- Automatic test running with `bun test --bail` on session stop (in Bun projects)
+
+### Bun Commands
+```bash
+bun install              # Install dependencies
+bun run <script>         # Run package.json script
+bun test                 # Run tests
+bun build                # Bundle for production
+bunx <package>           # Execute package without installing
+```
+
+### Installing Bun
+```bash
+curl -fsSL https://bun.sh/install | bash
+```
