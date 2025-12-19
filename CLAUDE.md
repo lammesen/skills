@@ -184,3 +184,69 @@ await redis.send("ZADD", ["leaderboard", "100", "player1"]);
 
 ### Integration with Bun Expert Skill
 The Redis skill uses Bun's native Redis client (`Bun.redis`) instead of external packages. It assumes the Bun Expert Skill is active for Bun-specific patterns (testing, TypeScript).
+
+---
+
+## PostgreSQL Expert Skill
+
+This project includes a comprehensive PostgreSQL Expert Skill for Claude Code located in `.claude/skills/postgresql-expert/`. The skill provides:
+
+### Main Skill
+- **SKILL.md**: Core PostgreSQL expertise using Bun.sql client including queries, schema design, JSON/JSONB operations, full-text search, indexing, PL/pgSQL, pgvector, and performance optimization
+
+### Reference Documentation
+- **sql-patterns.md**: Complete SQL syntax reference (SELECT, INSERT, UPDATE, DELETE, CTEs, Window Functions)
+- **json-operations.md**: JSONB operators, JSON path queries, modification functions
+- **full-text-search.md**: Full-text search configuration, ranking, and highlighting
+- **indexing-strategies.md**: Index type selection guide (B-tree, GIN, GiST, BRIN)
+- **plpgsql-reference.md**: PL/pgSQL functions, triggers, and stored procedures
+- **pgvector-guide.md**: Vector similarity search, HNSW/IVFFlat indexes, RAG patterns
+- **performance-optimization.md**: EXPLAIN analysis, query tuning, configuration
+- **security-patterns.md**: Row-Level Security (RLS), roles, permissions
+
+### Templates
+- **migration-template.sql**: Database migration template
+- **trigger-template.sql**: Trigger function template
+- **test-template.ts**: Testing template with bun:test
+
+### Scripts
+- **explain-analyzer.md**: EXPLAIN output analysis guide
+
+### Specialized Agents
+- **pg-query**: Query specialist for complex SQL, CTEs, window functions, JSON operations
+- **pg-schema**: Schema design expert for tables, constraints, indexes, migrations
+- **pg-performance**: Performance tuning specialist for EXPLAIN analysis and optimization
+
+### PostgreSQL Commands (via Bun.sql)
+```typescript
+import { sql, SQL } from "bun";
+
+// Environment-based (uses POSTGRES_URL, DATABASE_URL, or PG* vars)
+await sql`SELECT * FROM users WHERE id = ${userId}`;
+
+// Custom client
+const db = new SQL({
+  hostname: "localhost",
+  port: 5432,
+  database: "myapp",
+  username: "dbuser",
+  password: "secretpass",
+  max: 20,              // Connection pool size
+  tls: true,            // Enable TLS
+});
+
+// Transactions
+await sql.begin(async (tx) => {
+  const [user] = await tx`INSERT INTO users ${tx({ name, email })} RETURNING *`;
+  await tx`INSERT INTO accounts (user_id) VALUES (${user.id})`;
+});
+
+// Object insertion
+await sql`INSERT INTO users ${sql({ name, email, role })}`;
+
+// Bulk insert
+await sql`INSERT INTO products ${sql(productsArray)}`;
+```
+
+### Integration with Bun Expert Skill
+The PostgreSQL skill uses Bun's native SQL client (`Bun.sql`) instead of external packages like pg or postgres.js. It assumes the Bun Expert Skill is active for Bun-specific patterns (testing, TypeScript).
