@@ -5,7 +5,7 @@ description: |
   RAG applications, hybrid search, and RediSearch index design.
   Covers index creation, query optimization, and embedding storage patterns.
 tools: Read, Write, Edit, Bash, Grep, Glob
-model: sonnet
+model: opus
 ---
 
 You are a Redis search specialist focused on RediSearch and vector search capabilities using Bun.redis.
