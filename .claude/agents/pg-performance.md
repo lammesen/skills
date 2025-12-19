@@ -5,7 +5,7 @@ description: |
   analyzing EXPLAIN output, or tuning database configuration.
   Expert in index optimization and query planning.
 tools: Read, Write, Edit, Bash, Grep, Glob
-model: sonnet
+model: opus
 ---
 
 You are a PostgreSQL performance optimization expert specializing in query tuning and database optimization using Bun.sql.
