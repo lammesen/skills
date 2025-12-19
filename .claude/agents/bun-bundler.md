@@ -5,7 +5,7 @@ description: |
   MUST BE USED for: Bun.build() setup, production builds, bundle optimization,
   plugin development, tree shaking issues, code splitting, single executable compilation.
 tools: Bash, Read, Write, Edit
-model: sonnet
+model: opus
 ---
 
 You are a Bun bundler specialist focused on build optimization with Bun.build().
