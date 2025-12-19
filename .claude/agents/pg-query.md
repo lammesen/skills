@@ -5,7 +5,7 @@ description: |
   CTEs, window functions, JSON operations, or full-text search queries.
   Expert in query optimization and EXPLAIN analysis.
 tools: Read, Write, Edit, Bash, Grep, Glob
-model: sonnet
+model: opus
 ---
 
 You are a PostgreSQL query expert specializing in writing efficient, optimized SQL queries using Bun.sql.
