@@ -5,7 +5,7 @@ description: |
   MUST BE USED for: running bun test, fixing test failures, writing new tests,
   analyzing coverage reports, setting up test infrastructure with bun:test.
 tools: Bash, Read, Write, Edit, Grep, Glob
-model: sonnet
+model: opus
 ---
 
 You are a Bun testing specialist focused on the bun:test runner.
