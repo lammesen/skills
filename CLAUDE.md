@@ -91,3 +91,53 @@ bunx <package>           # Execute package without installing
 ```bash
 curl -fsSL https://bun.sh/install | bash
 ```
+
+---
+
+## ElysiaJS Expert Skill
+
+This project includes a comprehensive ElysiaJS Expert Skill for Claude Code located in `.claude/skills/elysiajs-expert/`. The skill provides:
+
+### Main Skill
+- **SKILL.md**: Core ElysiaJS expertise including routing, lifecycle hooks, TypeBox validation, Eden type-safe clients, authentication with JWT/Bearer, all official plugins, testing patterns, and production deployment
+
+### Reference Documentation
+- **core-api.md**: Complete Elysia core API reference (constructor, routes, context, state, plugins)
+- **lifecycle-hooks.md**: All lifecycle hooks in detail (onRequest, onParse, derive, resolve, beforeHandle, etc.)
+- **typebox-validation.md**: TypeBox schema patterns and validation
+- **plugins.md**: All official plugins (OpenAPI, JWT, Bearer, CORS, Static, HTML, Cron, GraphQL, tRPC)
+- **eden-client.md**: Eden Treaty type-safe client patterns
+
+### Pattern Documentation
+- **authentication.md**: JWT, Bearer, session, RBAC, OAuth patterns
+- **api-design.md**: REST API design, project structure, error handling
+- **websocket.md**: WebSocket implementation patterns
+- **testing.md**: Testing strategies with bun:test and Eden
+
+### Project Templates
+- **basic-api.md**: Minimal API template
+- **auth-api.md**: Authenticated API with JWT
+- **fullstack.md**: Full-stack Elysia + Eden template
+
+### Specialized Agents
+- **elysia-router**: Route design expert for REST APIs, path parameters, groups, and guards
+- **elysia-auth**: Authentication specialist for JWT, sessions, RBAC, and OAuth
+- **elysia-api-designer**: API design specialist for schemas, OpenAPI, and conventions
+
+### ElysiaJS Commands
+```bash
+# Create new Elysia project
+bun create elysia my-app
+
+# Install Elysia and plugins
+bun add elysia @elysiajs/cors @elysiajs/jwt @elysiajs/openapi
+
+# Run development server
+bun --watch src/index.ts
+
+# Build for production
+bun build --compile --minify src/index.ts --outfile server
+```
+
+### Integration with Bun Expert Skill
+The ElysiaJS skill assumes the Bun Expert Skill is active for Bun-specific patterns (file I/O, SQLite, testing runner, builds). Elysia projects benefit from existing Bun hooks for TypeScript formatting.
