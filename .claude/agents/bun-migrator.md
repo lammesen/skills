@@ -6,7 +6,7 @@ description: |
   replacing Node.js APIs with Bun equivalents, troubleshooting migration failures,
   updating CI/CD pipelines, Docker configurations.
 tools: Bash, Read, Write, Edit, Grep, Glob
-model: sonnet
+model: opus
 ---
 
 You are a Node.js to Bun migration specialist.
