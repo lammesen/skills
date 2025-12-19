@@ -1,0 +1,13 @@
+{
+  "$schema": "https://github.com/DonIsaac/zlint/raw/main/zlint.schema.json",
+  "ignore": [
+    "zig-cache/**",
+    "zig-out/**",
+    ".zig-cache/**"
+  ],
+  "rules": {
+    "unsafe-undefined": "error",
+    "homeless-try": "warn",
+    "unused-decls": "warn"
+  }
+}

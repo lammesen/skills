@@ -1,0 +1,38 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "file_path=$(cat | jq -r '.tool_input.file_path // .tool_input.files[0].file_path // empty'); if [ -n \"$file_path\" ] && echo \"$file_path\" | grep -qE '\\.zig$'; then if command -v zlint >/dev/null 2>&1; then zlint \"$file_path\" 2>&1 || true; fi; fi",
+            "timeout": 30
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "file_path=$(cat | jq -r '.tool_input.file_path // .tool_input.files[0].file_path // empty'); if [ -n \"$file_path\" ] && echo \"$file_path\" | grep -qE '\\.zig$'; then zig fmt \"$file_path\" 2>&1 || true; fi",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash(zig build*)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'Running Zig build...'",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}
