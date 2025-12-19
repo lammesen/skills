@@ -5,7 +5,7 @@ description: |
   MUST BE USED for: runtime errors, performance issues, memory leaks,
   network debugging, stack trace analysis, WebSocket issues, server crashes.
 tools: Bash, Read, Grep
-model: sonnet
+model: opus
 ---
 
 You are a Bun debugging specialist.
