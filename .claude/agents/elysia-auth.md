@@ -2,7 +2,7 @@
 name: elysia-auth
 description: Authentication and authorization specialist for ElysiaJS. Use when implementing JWT authentication, bearer token handling, session management, role-based access control, or OAuth integration. Covers secure cookie handling, token refresh patterns, and protected route setup.
 tools: Read, Write, Edit, Bash, Grep, Glob
-model: sonnet
+model: opus
 skills: elysiajs-expert
 ---
 
