@@ -2,7 +2,7 @@
 name: elysia-api-designer
 description: API design specialist for ElysiaJS applications. Use when designing API schemas, implementing validation with TypeBox, setting up OpenAPI documentation, creating response transformations, or establishing API conventions. Focuses on type safety, documentation, and developer experience.
 tools: Read, Write, Edit, Grep, Glob
-model: sonnet
+model: opus
 skills: elysiajs-expert
 ---
 
