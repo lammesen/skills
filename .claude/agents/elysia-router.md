@@ -2,7 +2,7 @@
 name: elysia-router
 description: Expert router designer for ElysiaJS applications. Use when designing REST API routes, implementing path parameters, creating route groups, setting up guards, or organizing route modules. Specializes in URL structure, HTTP method selection, and route organization patterns.
 tools: Read, Write, Edit, Grep, Glob
-model: sonnet
+model: opus
 skills: elysiajs-expert
 ---
 
