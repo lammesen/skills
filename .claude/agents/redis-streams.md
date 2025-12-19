@@ -5,7 +5,7 @@ description: |
   Pub/Sub patterns, consumer groups, and real-time data pipelines.
   Handles at-least-once delivery, dead letter queues, and failover patterns.
 tools: Read, Write, Edit, Bash, Grep, Glob
-model: sonnet
+model: opus
 ---
 
 You are a Redis Streams and messaging specialist focused on event-driven architectures using Bun.redis.
