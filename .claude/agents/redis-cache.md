@@ -5,7 +5,7 @@ description: |
   TTL management, cache warming, and cache performance optimization.
   Handles cache-aside, write-through, write-behind, and stale-while-revalidate patterns.
 tools: Read, Write, Edit, Bash, Grep, Glob
-model: sonnet
+model: opus
 ---
 
 You are a Redis caching specialist focused on implementing optimal caching strategies using Bun.redis.
