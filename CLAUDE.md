@@ -141,3 +141,46 @@ bun build --compile --minify src/index.ts --outfile server
 
 ### Integration with Bun Expert Skill
 The ElysiaJS skill assumes the Bun Expert Skill is active for Bun-specific patterns (file I/O, SQLite, testing runner, builds). Elysia projects benefit from existing Bun hooks for TypeScript formatting.
+
+---
+
+## Redis Expert Skill
+
+This project includes a comprehensive Redis Expert Skill for Claude Code located in `.claude/skills/redis-expert/`. The skill provides:
+
+### Main Skill
+- **SKILL.md**: Core Redis expertise using Bun.redis native client including data structures, caching strategies, Pub/Sub, Streams, Lua scripting, and performance optimization
+
+### Reference Documentation
+- **DATA-STRUCTURES.md**: Complete data structure reference (Strings, Hashes, Lists, Sets, Sorted Sets, Streams, Bitmaps, HyperLogLog, Geospatial)
+- **STACK-FEATURES.md**: Redis Stack modules (RedisJSON, RediSearch, Vector Search, TimeSeries, RedisBloom)
+- **PATTERNS.md**: Production patterns (caching strategies, session storage, rate limiting, distributed locks, job queues, leaderboards)
+- **PUBSUB-STREAMS.md**: Pub/Sub messaging and Streams for event sourcing
+- **SCRIPTING.md**: Lua scripting patterns and script management
+- **TESTING.md**: Testing patterns for Redis operations with bun:test
+
+### Specialized Agents
+- **redis-cache**: Caching specialist for cache-aside, write-through, write-behind patterns, TTL management, and cache invalidation
+- **redis-search**: Search specialist for RediSearch indexes, full-text search, vector similarity search, and RAG applications
+- **redis-streams**: Streams specialist for event sourcing, consumer groups, message queues, and real-time pipelines
+
+### Redis Commands (via Bun.redis)
+```typescript
+import { redis, RedisClient } from "bun";
+
+// Default client (uses REDIS_URL or localhost:6379)
+await redis.set("key", "value");
+await redis.get("key");
+
+// Custom client
+const client = new RedisClient("redis://localhost:6379", {
+  autoReconnect: true,
+  enableAutoPipelining: true
+});
+
+// Raw commands for unsupported operations
+await redis.send("ZADD", ["leaderboard", "100", "player1"]);
+```
+
+### Integration with Bun Expert Skill
+The Redis skill uses Bun's native Redis client (`Bun.redis`) instead of external packages. It assumes the Bun Expert Skill is active for Bun-specific patterns (testing, TypeScript).
