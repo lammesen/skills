@@ -20,6 +20,16 @@
             "timeout": 30
           }
         ]
+      },
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "file_path=$(cat | jq -r '.tool_input.file_path // .tool_input.files[0].file_path // empty'); if [ -n \"$file_path\" ] && echo \"$file_path\" | grep -qE '\\.(ts|tsx|js|jsx|mjs|mts)$'; then project_dir=$(dirname \"$file_path\"); while [ \"$project_dir\" != \"/\" ]; do if [ -f \"$project_dir/bunfig.toml\" ] || [ -f \"$project_dir/bun.lock\" ] || [ -f \"$project_dir/bun.lockb\" ]; then if command -v biome >/dev/null 2>&1; then biome check --write \"$file_path\" 2>&1 || true; elif bunx biome --version >/dev/null 2>&1; then bunx biome check --write \"$file_path\" 2>&1 || true; fi; break; fi; project_dir=$(dirname \"$project_dir\"); done; fi",
+            "timeout": 30
+          }
+        ]
       }
     ],
     "PreToolUse": [
@@ -30,6 +40,28 @@
             "type": "command",
             "command": "echo 'Running Zig build...'",
             "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "Bash(bun build*)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'Running Bun build...'",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if [ -f bunfig.toml ] || [ -f bun.lock ] || [ -f bun.lockb ]; then bun test --bail 2>/dev/null || echo 'Tests completed with failures'; fi",
+            "timeout": 120
           }
         ]
       }
